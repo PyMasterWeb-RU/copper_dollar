@@ -13,7 +13,7 @@ dp = Dispatcher(bot)
 
 @dp.message_handler(commands=['start'])
 async def start(message: types.Message):
-    await bot.send_message(message.from_user.id, "Привет{0.first_name}!".format(message.from_user), reply_markup=nav.mainMenu)
+    await bot.send_message(message.from_user.id, "Привет {0.first_name}!".format(message.from_user), reply_markup=nav.mainMenu)
 
 
 @dp.message_handler()
@@ -26,7 +26,7 @@ async def bot_message(message: types.Message):
         await bot.send_message(message.from_user.id, f"Курс меди в $: 1 тонна меди = {copper} $")
     elif message.text == "🔶 Курс меди в руб.":
         copper_ru = copper_rub()
-        await bot.send_message(message.from_user.id, f"Курс меди в рулях: 1 тонна меди = {copper_ru} рублей")
+        await bot.send_message(message.from_user.id, f"Курс меди в рулбях: 1 тонна меди = {copper_ru} рублей")
     elif message.text == "📈Цена сдачи в рублях":
         price = price_change()
         await bot.send_message(message.from_user.id, f"Цена сдачи в рублях: {price} рублей")
