@@ -44,6 +44,24 @@ def medium():
     stock_point = stock_point[:-2]
     return stock_point
 
+
+def price_change():
+    currensy = dollars()
+    copper = medium()
+    price = float(copper) * float(currensy)
+    price = int(price)
+    price_change = int(price / 1000) - 70
+    return price_change
+
+
+def copper_rub():
+    currensy = dollars()
+    copper = medium()
+    price = float(copper) * float(currensy)
+    price = int(price)
+    return price
+    
+
 if __name__ == "__main__":
     currensy = dollars()
     copper = medium()
