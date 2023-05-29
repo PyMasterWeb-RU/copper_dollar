@@ -34,15 +34,21 @@ def dollars():
     return currency_point
 
 def medium():
-    servis_object = Service(binary_path)
+    session = requests.Session()
+    link = 'https://goramet.ru/ceni-na-cvetnie-metalli/'
 
-    driver = webdriver.Chrome(service=servis_object)
-    driver.maximize_window()
-    driver.get("https://yandex.ru/search/?text=%D0%BC%D0%B5%D0%B4%D1%8C+%D0%BA%D1%83%D1%80%D1%81+%D1%86%D0%B5%D0%BD%D0%B0&lr=66")
-    stock = driver.find_element(By.CLASS_NAME, 'StocksInfoBoard-Value').text
-    stock_point = stock.replace(",", ".")
-    stock_point = stock_point[:-2]
-    return stock_point
+    headers = {
+        'User-Agent': fake_useragent.UserAgent().random
+    }
+
+    response = session.get(link, headers=headers)
+
+    soup = BeautifulSoup(response.text, 'html.parser')
+
+    currency_price = (soup.select_one("table tr:nth-of-type(3)")).text
+
+    currency_copper = currency_price[4:-9]
+    return currency_copper
 
 
 def price_change():
