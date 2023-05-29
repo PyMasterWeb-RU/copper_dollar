@@ -30,7 +30,7 @@ def dollars():
 
 def medium():
     session = requests.Session()
-    link = 'https://goramet.ru/ceni-na-cvetnie-metalli/'
+    link = 'https://mcheese.ru/symbol/copper'
 
     headers = {
         'User-Agent': fake_useragent.UserAgent().random
@@ -40,10 +40,8 @@ def medium():
 
     soup = BeautifulSoup(response.text, 'html.parser')
 
-    currency_price = (soup.select_one("table tr:nth-of-type(3)")).text
-
-    currency_copper = currency_price[4:-9]
-    return currency_copper
+    price_copper = (soup.find("div", class_="value")).text
+    return price_copper
 
 
 def price_change():
