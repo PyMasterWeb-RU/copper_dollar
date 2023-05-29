@@ -1,11 +1,6 @@
 import requests
 import fake_useragent
 from bs4 import BeautifulSoup
-from selenium import webdriver
-from selenium.webdriver.common.by import By
-from selenium.webdriver.common.keys import Keys
-from selenium.webdriver.chrome.service import Service
-from chromedriver_py import binary_path
 
 
 def dollars():
