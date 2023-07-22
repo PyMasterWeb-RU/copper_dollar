@@ -18,10 +18,6 @@ def dollars():
 
     soup = BeautifulSoup(response, 'html.parser')
 
-    # currency_title = soup.find("div", class_="currency_title").text
-
-    # currency_symbol = soup.find("div", class_ = "currency_symbol").text
-
     currency_price = soup.find("div", class_ = "currency_price").text
     currency_price = currency_price[2:]
     currency_point = currency_price.replace(",", ".")
@@ -29,19 +25,15 @@ def dollars():
     return currency_point
 
 def medium():
-    session = requests.Session()
-    link = 'https://mcheese.ru/symbol/copper'
+    
+    url = 'https://mfd.ru/marketdata/ticker/?id=15277#id=15277'
 
-    headers = {
-        'User-Agent': fake_useragent.UserAgent().random
-    }
-
-    response = session.get(link, headers=headers)
-
+    response = requests.get(url)
     soup = BeautifulSoup(response.text, 'html.parser')
 
-    price_copper = (soup.find("div", class_="value")).text
-    return price_copper
+    price_copper = soup.find('div', class_ = 'm-companytable-last').text
+    price_copper_final = price_copper.replace(" ", "")
+    return float(price_copper_final)
 
 
 def price_change():
