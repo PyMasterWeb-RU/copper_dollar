@@ -49,4 +49,5 @@ pythonw bot.py
 **Communicate with the author:**
 ```
 - Telegram: @PyMasterWeb
+- Telegram: @klenyushin94
 ```
