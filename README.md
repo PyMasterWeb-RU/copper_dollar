@@ -44,6 +44,7 @@ pythonw bot.py
 
 ## Author: 
 * [Kuznetsov Sergey](https://github.com/PyMasterWeb-RU) :+1:
+* [klenyushin94](https://github.com/klenyushin94) :+1:
 
 **Communicate with the author:**
 ```
